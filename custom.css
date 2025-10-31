@@ -6,6 +6,7 @@
   --primary-accent: #8DC63F; /* Leuchtendes Limettengrün als Akzentfarbe (ersetzt "yellow") */
   --primary-bg: #F8F8F8;     /* Sehr heller Hintergrund */
   --hover-bg: #E0E0E0;       /* Leicht dunkleres Hellgrau für Hover-Effekte */
+  --hover-pm: #8dc63fc4;
 }
 
 /* --- Allgemeine Textfarbe anpassen --- */
@@ -29,7 +30,7 @@ body {
 }
 
 #sidebar > div *:hover {
-  background-color: var(--hover-bg) !important;
+  background-color: var(--hover-pm:) !important;
 }
 
 [aria-label="Voice mode"] {
@@ -83,9 +84,9 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 
 /* --- Logo-Anpassung für das "OI"-Icon neben dem Titel --- */
 /* Der Selektor zielt auf das Bild mit diesen spezifischen Klassen */
-.sidebar-new-chat-icon.size-6.rounded-full {
+/*.sidebar-new-chat-icon.size-6.rounded-full {
     display: none !important; /* Original-Icon ausblenden */
-}
+}*/
 
 /* Pseudo-Element verwenden, um Ihr Favicon/Logo einzufügen */
 /* Wir verwenden hier das Favicon, da es ein kleines, quadratisches Icon ist */
