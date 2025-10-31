@@ -1,63 +1,48 @@
-/* custom.css */
-
-/* 1. Titel in der linken Seitenleiste ändern (Workaround - bereits aktiv) */
-/* Blendet den ursprünglichen "OI"-Text aus und ersetzt ihn durch "gkv informatik" */
-.sidebar .self-center.font-medium {
-    font-size: 0 !important;
-    line-height: 0 !important;
-    position: relative;
-    width: auto !important;
-    height: auto !important;
+:root {
+  --primary-text: #00487d;
+  --primary-yellow: #ffd600;
+  --primary-bg: #e2eef5;
+  --hover-bg: #d4e3ed;
 }
 
-.sidebar .self-center.font-medium::before {
-    content: "gkv informatik" !important;
-    font-size: 1rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
-    line-height: normal !important;
-    color: var(--primary-text, #000) !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
+* {
+  color: var(--primary-text) !important;
 }
 
-/* 2. Allgemeine Stiländerungen: Hintergrundfarbe auf Hellgrün */
-body {
-    background-color: #e6ffe6 !important; /* Ein helles Grün */
-    color: #333 !important; /* Dunklerer Text für besseren Kontrast */
-}
-/* Beispiel für Chat-Blasen, falls gewünscht */
-.chat-bubble {
-    background-color: #f0f0f0 !important; /* Leichtere Chat-Blasen */
-    border-radius: 10px !important;
+#send-message-button {
+  background-color: var(--primary-yellow) !important;
 }
 
-/* --- Logo-Anpassung für den "Neuer Chat"-Button --- */
-
-/* 1. Original-Icon (Bleistift) im "Neuer Chat"-Button ausblenden */
-/* Der Selektor zielt auf das SVG-Icon innerhalb des Buttons */
-.sidebar button[id="sidebar-new-chat-button"] svg {
-    display: none !important;
+#sidebar {
+  background-color: var(--primary-bg) !important;
 }
 
-/* 2. Den Button selbst anpassen, um Platz für das neue Logo zu schaffen */
-.sidebar button[id="sidebar-new-chat-button"] {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 0.5rem !important; /* Beispiel, an Logo-Größe anpassen */
-    background-color: transparent !important; /* Optional: Hintergrund des Buttons transparent machen */
+#sidebar > div *:hover {
+  background-color: var(--hover-bg) !important;
 }
 
-/* 3. Ihr neues rechteckiges Logo über ein Pseudo-Element einfügen */
-.sidebar button[id="sidebar-new-chat-button"]::before {
-    content: "" !important;
-    display: block !important;
-    background-image: url('/static/logo.png') !important; /* Pfad im Container */
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    width: 100px !important;  /* BEISPIEL: Gewünschte Breite anpassen */
-    height: 30px !important; /* BEISPIEL: Gewünschte Höhe unter Beibehaltung des Seitenverhältnisses anpassen */
-    border-radius: 0 !important; /* Stellt sicher, dass es nicht rund ist */
+[aria-label="Voice mode"] {
+  background-color: var(--primary-yellow) !important;
+}
+
+.tippy-content {
+  background-color: var(--primary-yellow) !important;
+  border-color: var(--primary-yellow) !important;
+}
+
+.tippy-box {
+  background-color: var(--primary-yellow) !important;
+  border-color: var(--primary-yellow) !important;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-yellow) !important;
+}
+
+[role="switch"][aria-checked="true"] {
+  background-color: var(--primary-yellow) !important;
+}
+
+button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-white.dark\:bg-white.dark\:text-black.dark\:hover\:bg-gray-100.transition.rounded-full {
+  background-color: var(--primary-yellow) !important;
 }
