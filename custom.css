@@ -72,7 +72,7 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 
 .sidebar .self-center.font-medium::before {
     content: "gkv informatik" !important;
-    font-size: 2rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
+    font-size: 1.2rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
     line-height: normal !important;
     color: var(--primary-text) !important; /* Verwendet die neue Primärtextfarbe */
     white-space: nowrap;
@@ -96,8 +96,8 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    width: 24px !important;  /* Größe anpassen */
-    height: 24px !important; /* Größe anpassen */
+    width: 84px !important;  /* Größe anpassen */
+    height: 44px !important; /* Größe anpassen */
     border-radius: 0 !important; /* Optional: Wenn es nicht rund sein soll */
     margin-right: 8px !important; /* Abstand zum Text */
 }
