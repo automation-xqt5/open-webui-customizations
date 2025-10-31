@@ -95,7 +95,7 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 /* Pseudo-Element verwenden, um Ihr Favicon/Logo einzufügen */
 /* Wir verwenden hier das Favicon, da es ein kleines, quadratisches Icon ist */
 
-img[src="/static/favicon.png"].sidebar-new-chat-icon.size-6.rounded-full {
+img.sidebar-new-chat-icon.size-6.rounded-full {
     border-radius: 0 !important; /* Macht es rechteckig */
     width: 80px !important;    /* Beispielbreite, an Ihr Logo anpassen */
     height: 40px !important;   /* Beispielhöhe, an Ihr Logo anpassen */
