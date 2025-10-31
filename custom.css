@@ -1,32 +1,63 @@
-/* 1. Titel in der linken Seitenleiste ändern (Workaround) */
-/* Blendet den ursprünglichen "Open WebUI"-Text aus */
+/* custom.css */
+
+/* 1. Titel in der linken Seitenleiste ändern (Workaround - bereits aktiv) */
+/* Blendet den ursprünglichen "OI"-Text aus und ersetzt ihn durch "gkv informatik" */
 .sidebar .self-center.font-medium {
-    font-size: 0 !important; /* Macht den Originaltext unsichtbar */
-    line-height: 0 !important; /* Reduziert die Höhe des Originaltextes */
-    position: relative; /* Wichtig für die Positionierung des Pseudo-Elements */
-    width: auto !important; /* Behält die Breite des Elements bei */
-    height: auto !important; /* Behält die Höhe des Elements bei */
+    font-size: 0 !important;
+    line-height: 0 !important;
+    position: relative;
+    width: auto !important;
+    height: auto !important;
 }
 
-/* Fügt den neuen Text "gkv informatik" über ein Pseudo-Element ein */
 .sidebar .self-center.font-medium::before {
-    content: "gkv informatik" !important; /* Ihr gewünschter Text */
+    content: "gkv informatik" !important;
     font-size: 1rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
-    line-height: normal !important; /* Setzt die Zeilenhöhe zurück */
-    color: var(--primary-text, #000) !important; /* Verwendet die primäre Textfarbe oder Schwarz */
-    white-space: nowrap; /* Verhindert Zeilenumbrüche */
-    overflow: hidden; /* Verhindert Überlauf */
-    text-overflow: ellipsis; /* Fügt Auslassungspunkte hinzu, falls der Text zu lang ist */
-    display: block; /* Stellt sicher, dass es als Blockelement angezeigt wird */
+    line-height: normal !important;
+    color: var(--primary-text, #000) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
 }
 
-/* 2. Allgemeine Stiländerungen (Beispiele aus dem Artikel) */
+/* 2. Allgemeine Stiländerungen: Hintergrundfarbe auf Hellgrün */
 body {
-    background-color: #222 !important; /* Dunkler Hintergrund */
-    color: #eee !important; /* Helle Textfarbe */
+    background-color: #e6ffe6 !important; /* Ein helles Grün */
+    color: #333 !important; /* Dunklerer Text für besseren Kontrast */
 }
+/* Beispiel für Chat-Blasen, falls gewünscht */
 .chat-bubble {
-    background-color: #444 !important; /* Dunklere Chat-Blasen */
-    border-radius: 10px !important; /* Abgerundete Ecken für Chat-Blasen */
+    background-color: #f0f0f0 !important; /* Leichtere Chat-Blasen */
+    border-radius: 10px !important;
 }
-/* Fügen Sie hier weitere CSS-Stile hinzu, um das Aussehen anzupassen */
+
+/* --- Logo-Anpassung für den "Neuer Chat"-Button --- */
+
+/* 1. Original-Icon (Bleistift) im "Neuer Chat"-Button ausblenden */
+/* Der Selektor zielt auf das SVG-Icon innerhalb des Buttons */
+.sidebar button[id="sidebar-new-chat-button"] svg {
+    display: none !important;
+}
+
+/* 2. Den Button selbst anpassen, um Platz für das neue Logo zu schaffen */
+.sidebar button[id="sidebar-new-chat-button"] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0.5rem !important; /* Beispiel, an Logo-Größe anpassen */
+    background-color: transparent !important; /* Optional: Hintergrund des Buttons transparent machen */
+}
+
+/* 3. Ihr neues rechteckiges Logo über ein Pseudo-Element einfügen */
+.sidebar button[id="sidebar-new-chat-button"]::before {
+    content: "" !important;
+    display: block !important;
+    background-image: url('/static/logo.png') !important; /* Pfad im Container */
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 100px !important;  /* BEISPIEL: Gewünschte Breite anpassen */
+    height: 30px !important; /* BEISPIEL: Gewünschte Höhe unter Beibehaltung des Seitenverhältnisses anpassen */
+    border-radius: 0 !important; /* Stellt sicher, dass es nicht rund ist */
+}
