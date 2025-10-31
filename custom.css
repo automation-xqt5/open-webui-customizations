@@ -90,10 +90,7 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 }
 
 /* --- Logo-Anpassung für das "OI"-Icon neben dem Titel --- */
-/* Der Selektor zielt auf das Bild mit diesen spezifischen Klassen */
-/*.sidebar-new-chat-icon.size-6.rounded-full {
-    display: none !important; /* Original-Icon ausblenden */
-}*/
+
 
 /* Pseudo-Element verwenden, um Ihr Favicon/Logo einzufügen */
 /* Wir verwenden hier das Favicon, da es ein kleines, quadratisches Icon ist */
