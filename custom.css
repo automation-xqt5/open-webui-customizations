@@ -2,11 +2,15 @@
 
 /* --- Farbdefinitionen basierend auf "gkv informatik" --- */
 :root {
-  --primary-text: #006666;   /* Dunkles Teal/Blaugrün für Haupttext */
-  --primary-accent: #8DC63F; /* Leuchtendes Limettengrün als Akzentfarbe (ersetzt "yellow") */
+  --primary-text: #00575C;   /* Dunkles Teal/Blaugrün für Haupttext */
+  --primary-accent: #A2C613; /* Leuchtendes Limettengrün als Akzentfarbe */
   --primary-bg: #F8F8F8;     /* Sehr heller Hintergrund */
   --hover-bg: #E0E0E0;       /* Leicht dunkleres Hellgrau für Hover-Effekte */
   --hover-pm: #8dc63fc4;
+  --hellgruen-100%: #A2C613;
+  --hellgruen-80%: #B7D050;
+  
+  
 }
 
 /* --- Allgemeine Textfarbe anpassen --- */
@@ -73,6 +77,9 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 
 .sidebar .self-center.font-medium::before {
     content: "gkv informatik" !important;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 600; 
+    font-style: italic; 
     font-size: 1.2rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
     line-height: normal !important;
     color: var(--primary-text) !important; /* Verwendet die neue Primärtextfarbe */
@@ -107,28 +114,37 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 /* --- Logo-Anpassung für den "Neuer Chat"-Button --- */
 
 /* 1. Original-Icon (Bleistift) im "Neuer Chat"-Button ausblenden */
-.sidebar button[id="sidebar-new-chat-button"] svg {
+/*.sidebar button[id="sidebar-new-chat-button"] svg {
     display: none !important;
+}*/
+
+img[src="/static/favicon.png"].size-9.rounded-full {
+    border-radius: 0 !important; /* Macht es rechteckig */
+    width: 60px !important;    /* Beispielbreite, an Ihr Favicon anpassen */
+    height: 24px !important;   /* Beispielhöhe, an Ihr Favicon anpassen */
+    object-fit: contain !important; /* Stellt sicher, dass das Bild ohne Zuschnitt passt */
+    border: none !important; /* Entfernt den 1px Border */
 }
 
-/* 2. Den Button selbst anpassen, um Platz für das neue Logo zu schaffen */
+
+/* --- ANPASSUNG DES LOGOS IM "NEUER CHAT"-BUTTON (Ihr logo.png) --- */
+/* Dieser Teil bleibt, da er das Original-Icon ausblendet und Ihr Logo als Hintergrundbild des Buttons setzt */
+.sidebar button[id="sidebar-new-chat-button"] svg {
+    display: none !important; /* Original-Bleistift-Icon ausblenden */
+}
+
 .sidebar button[id="sidebar-new-chat-button"] {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0.5rem !important; /* Beispiel, an Logo-Größe anpassen */
-    background-color: transparent !important; /* Optional: Hintergrund des Buttons transparent machen */
-}
-
-/* 3. Ihr neues rechteckiges Logo über ein Pseudo-Element einfügen */
-.sidebar button[id="sidebar-new-chat-button"]::before {
-    content: "" !important;
-    display: block !important;
-    background-image: url('/static/logo.png')  !important; /* Pfad im Container */
+    padding: 0.5rem !important;
+    background-color: transparent !important;
+    /* Hier wird Ihr logo.png als Hintergrundbild des Buttons verwendet */
+    background-image: url('/static/logo.png') !important; /* Pfad im Container */
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    width: 100px !important;  /* BEISPIEL: Gewünschte Breite anpassen */
-    height: 30px !important; /* BEISPIEL: Gewünschte Höhe unter Beibehaltung des Seitenverhältnisses anpassen */
-    border-radius: 0 !important; /* Stellt sicher, dass es nicht rund ist */
+    width: 120px !important;  /* Beispielbreite für Ihr rechteckiges Logo */
+    height: 40px !important; /* Beispielhöhe */
+    border-radius: 0 !important; /* Macht es rechteckig */
 }
