@@ -97,7 +97,8 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 
 /* Pseudo-Element verwenden, um Ihr Favicon/Logo einzufügen */
 /* Wir verwenden hier das Favicon, da es ein kleines, quadratisches Icon ist */
-/*.sidebar-new-chat-icon.size-6.rounded-full::before {
+/*
+.sidebar-new-chat-icon.size-6.rounded-full::before {
     content: "" !important;
     display: block !important;
     background-image: url('/static/favicon.png') !important; !important; /* Pfad im Container */
