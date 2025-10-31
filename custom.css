@@ -1,16 +1,27 @@
+/* custom.css */
+
+/* --- Farbdefinitionen basierend auf "gkv informatik" --- */
 :root {
-  --primary-text: #00487d;
-  --primary-yellow: #ffd600;
-  --primary-bg: #e2eef5;
-  --hover-bg: #d4e3ed;
+  --primary-text: #006666;   /* Dunkles Teal/Blaugrün für Haupttext */
+  --primary-accent: #8DC63F; /* Leuchtendes Limettengrün als Akzentfarbe (ersetzt "yellow") */
+  --primary-bg: #F8F8F8;     /* Sehr heller Hintergrund */
+  --hover-bg: #E0E0E0;       /* Leicht dunkleres Hellgrau für Hover-Effekte */
 }
 
+/* --- Allgemeine Textfarbe anpassen --- */
 * {
   color: var(--primary-text) !important;
 }
 
+/* --- Hintergrundfarbe des Hauptbereichs anpassen --- */
+/* Dies sollte den allgemeinen Hintergrund des Chat-Bereichs beeinflussen */
+body {
+  background-color: var(--primary-bg) !important;
+}
+
+/* --- Spezifische Komponenten-Farben anpassen --- */
 #send-message-button {
-  background-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
 }
 
 #sidebar {
@@ -22,27 +33,101 @@
 }
 
 [aria-label="Voice mode"] {
-  background-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
 }
 
 .tippy-content {
-  background-color: var(--primary-yellow) !important;
-  border-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
+  border-color: var(--primary-accent) !important;
 }
 
 .tippy-box {
-  background-color: var(--primary-yellow) !important;
-  border-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
+  border-color: var(--primary-accent) !important;
 }
 
 button[type="submit"] {
-  background-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
 }
 
 [role="switch"][aria-checked="true"] {
-  background-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
 }
 
+/* Dieser Selektor ist sehr spezifisch und könnte sich ändern. */
+/* Er zielt auf einen Button mit vielen Tailwind-Klassen. */
 button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-white.dark\:bg-white.dark\:text-black.dark\:hover\:bg-gray-100.transition.rounded-full {
-  background-color: var(--primary-yellow) !important;
+  background-color: var(--primary-accent) !important;
+}
+
+/* --- Titel in der linken Seitenleiste ändern (Workaround - bereits aktiv) --- */
+/* Blendet den ursprünglichen "OI"-Text aus und ersetzt ihn durch "gkv informatik" */
+.sidebar .self-center.font-medium {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    position: relative;
+    width: auto !important;
+    height: auto !important;
+}
+
+.sidebar .self-center.font-medium::before {
+    content: "-gkv informatik-" !important;
+    font-size: 1rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
+    line-height: normal !important;
+    color: var(--primary-text) !important; /* Verwendet die neue Primärtextfarbe */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* --- Logo-Anpassung für das "OI"-Icon neben dem Titel --- */
+/* Der Selektor zielt auf das Bild mit diesen spezifischen Klassen */
+.sidebar-new-chat-icon.size-6.rounded-full {
+    display: none !important; /* Original-Icon ausblenden */
+}
+
+/* Pseudo-Element verwenden, um Ihr Favicon/Logo einzufügen */
+/* Wir verwenden hier das Favicon, da es ein kleines, quadratisches Icon ist */
+.sidebar-new-chat-icon.size-6.rounded-full::before {
+    content: "" !important;
+    display: block !important;
+    background-image: url('/static/favicon.png') !important; !important; /* Pfad im Container */
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 24px !important;  /* Größe anpassen */
+    height: 24px !important; /* Größe anpassen */
+    border-radius: 0 !important; /* Optional: Wenn es nicht rund sein soll */
+    margin-right: 8px !important; /* Abstand zum Text */
+}
+
+
+/* --- Logo-Anpassung für den "Neuer Chat"-Button --- */
+
+/* 1. Original-Icon (Bleistift) im "Neuer Chat"-Button ausblenden */
+.sidebar button[id="sidebar-new-chat-button"] svg {
+    display: none !important;
+}
+
+/* 2. Den Button selbst anpassen, um Platz für das neue Logo zu schaffen */
+.sidebar button[id="sidebar-new-chat-button"] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0.5rem !important; /* Beispiel, an Logo-Größe anpassen */
+    background-color: transparent !important; /* Optional: Hintergrund des Buttons transparent machen */
+}
+
+/* 3. Ihr neues rechteckiges Logo über ein Pseudo-Element einfügen */
+.sidebar button[id="sidebar-new-chat-button"]::before {
+    content: "" !important;
+    display: block !important;
+    background-image: url('/static/logo.png')  !important; /* Pfad im Container */
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 100px !important;  /* BEISPIEL: Gewünschte Breite anpassen */
+    height: 30px !important; /* BEISPIEL: Gewünschte Höhe unter Beibehaltung des Seitenverhältnisses anpassen */
+    border-radius: 0 !important; /* Stellt sicher, dass es nicht rund ist */
 }
