@@ -1,6 +1,6 @@
 #Dockerfile
 
-FROM ghcr.io/open-webui/open-webui:31.10
+FROM ghcr.io/open-webui/open-webui:latest
 
 # Kopiert Ihre benutzerdefinierte CSS-Datei (custom.css) an den Ort, wo Open WebUI sie erwartet.
 # Stellen Sie sicher, dass custom.css im selben Verzeichnis wie dieses Dockerfile liegt.
