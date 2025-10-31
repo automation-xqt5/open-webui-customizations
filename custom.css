@@ -25,11 +25,11 @@ body {
 }
 
 #sidebar {
-  background-color: var(--primary-bg) !important;
+  background-color: var(--primary-accent) !important;
 }
 
 #sidebar > div *:hover {
-  background-color: var(--primary-accent) !important;
+  background-color: var(--hover-bg) !important;
 }
 
 [aria-label="Voice mode"] {
