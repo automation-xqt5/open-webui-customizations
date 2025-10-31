@@ -1,0 +1,32 @@
+/* 1. Titel in der linken Seitenleiste ändern (Workaround) */
+/* Blendet den ursprünglichen "Open WebUI"-Text aus */
+.sidebar .self-center.font-medium {
+    font-size: 0 !important; /* Macht den Originaltext unsichtbar */
+    line-height: 0 !important; /* Reduziert die Höhe des Originaltextes */
+    position: relative; /* Wichtig für die Positionierung des Pseudo-Elements */
+    width: auto !important; /* Behält die Breite des Elements bei */
+    height: auto !important; /* Behält die Höhe des Elements bei */
+}
+
+/* Fügt den neuen Text "gkv informatik" über ein Pseudo-Element ein */
+.sidebar .self-center.font-medium::before {
+    content: "gkv informatik" !important; /* Ihr gewünschter Text */
+    font-size: 1rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
+    line-height: normal !important; /* Setzt die Zeilenhöhe zurück */
+    color: var(--primary-text, #000) !important; /* Verwendet die primäre Textfarbe oder Schwarz */
+    white-space: nowrap; /* Verhindert Zeilenumbrüche */
+    overflow: hidden; /* Verhindert Überlauf */
+    text-overflow: ellipsis; /* Fügt Auslassungspunkte hinzu, falls der Text zu lang ist */
+    display: block; /* Stellt sicher, dass es als Blockelement angezeigt wird */
+}
+
+/* 2. Allgemeine Stiländerungen (Beispiele aus dem Artikel) */
+body {
+    background-color: #222 !important; /* Dunkler Hintergrund */
+    color: #eee !important; /* Helle Textfarbe */
+}
+.chat-bubble {
+    background-color: #444 !important; /* Dunklere Chat-Blasen */
+    border-radius: 10px !important; /* Abgerundete Ecken für Chat-Blasen */
+}
+/* Fügen Sie hier weitere CSS-Stile hinzu, um das Aussehen anzupassen */
