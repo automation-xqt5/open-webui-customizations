@@ -29,7 +29,7 @@ body {
 }
 
 #sidebar > div *:hover {
-  background-color: var(--hover-bg) !important;
+  background-color: var(--primary-accent) !important;
 }
 
 [aria-label="Voice mode"] {
@@ -71,8 +71,8 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
 }
 
 .sidebar .self-center.font-medium::before {
-    content: "-gkv informatik-" !important;
-    font-size: 1rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
+    content: "gkv informatik" !important;
+    font-size: 2rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
     line-height: normal !important;
     color: var(--primary-text) !important; /* Verwendet die neue Primärtextfarbe */
     white-space: nowrap;
