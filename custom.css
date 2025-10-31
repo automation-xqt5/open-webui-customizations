@@ -79,7 +79,7 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
     content: "gkv informatik" !important;
     font-family: 'Barlow', sans-serif; 
     font-weight: 600; 
-    font-style: italic; 
+    
     font-size: 1.2rem !important; /* Passen Sie die Schriftgröße nach Bedarf an */
     line-height: normal !important;
     color: var(--primary-text) !important; /* Verwendet die neue Primärtextfarbe */
@@ -109,14 +109,8 @@ button.px-3\.5.py-1\.5.text-sm.font-medium.bg-black.hover\:bg-gray-900.text-whit
     border-radius: 0 !important; /* Optional: Wenn es nicht rund sein soll */
     margin-right: 8px !important; /* Abstand zum Text */
 }
+/*
 
-
-/* --- Logo-Anpassung für den "Neuer Chat"-Button --- */
-
-/* 1. Original-Icon (Bleistift) im "Neuer Chat"-Button ausblenden */
-/*.sidebar button[id="sidebar-new-chat-button"] svg {
-    display: none !important;
-}*/
 img.sidebar-new-chat-icon.size-6.rounded-full {
     border-radius: 0 !important; /* Macht es rechteckig */
     width: 60px !important;    /* Beispielbreite, an Ihr Logo anpassen */
@@ -125,8 +119,8 @@ img.sidebar-new-chat-icon.size-6.rounded-full {
     border: none !important; /* Entfernt den 1px Border, falls vorhanden */
     margin-right: 8px !important; /* Fügt etwas Abstand zum Text hinzu */
 }
-
-img[src="/static/favicon.png"].size-9.rounded-full {
+*/
+img[src="/stati/favicon.png"].size-9.rounded-full {
     border-radius: 0 !important; /* Macht es rechteckig */
     width: 90px !important;    /* Beispielbreite, an Ihr Favicon anpassen */
     height: 44px !important;   /* Beispielhöhe, an Ihr Favicon anpassen */
