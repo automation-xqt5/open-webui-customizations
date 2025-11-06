@@ -104,6 +104,10 @@ img.sidebar-new-chat-icon.size-6.rounded-full {
     margin-right: 8px !important; /* Fügt etwas Abstand zum Text hinzu */
 }
 
+img.sidebar-new-chat-icon.size-6.rounded-full {
+    display: none !important; /* BLENDET DAS LOGO AUS */
+}
+
 img[src="/static/favicon.png"].size-9.rounded-full {
     border-radius: 0 !important; /* Macht es rechteckig */
     width: 90px !important;    /* Beispielbreite, an Ihr Favicon anpassen */
