@@ -141,35 +141,41 @@ img[src="/static/favicon.png"].size-9.rounded-full {
 /*_______________________________________*/  
 /* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
 
-/* 1. Blendet die inneren Spans der "Bola" aus. */
-/* Dies sind die tatsächlichen pulsierenden Kreise. */
+span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
+    /* Entfernt die Standard-Größe und Rundung, um Platz für einen subtileren Indikator zu schaffen */
+    width: auto !important;
+    height: auto !important;
+    min-width: 20px !important; /* Etwas Platz für den Spinner lassen */
+    min-height: 20px !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Zentriert den Inhalt nicht mehr */
+    padding: 0 !important;
+    margin-left: 10px !important; /* Abstand zum Avatar */
+    margin-top: 5px !important;
+    position: relative !important; /* Für absolute Positionierung des Textes, falls nötig */
+}
+
+/* Blendet die inneren Spans der "Bola" aus, um den pulsierenden Effekt zu entfernen. */
+/* Dadurch sollte nur noch der äußere Container sichtbar sein. */
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span {
     display: none !important;
 }
 
-/* 2. Fügt den Text "thinking..." als Pseudo-Element in das äußere <span>-Element ein. */
-/* Dieses äußere <span>-Element ist der Container der "Bola" und wird von Open WebUI dynamisch entfernt. */
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
-    display: inline-flex !important; /* Stellt sicher, dass der Container sichtbar ist */
-    position: relative !important; /* Wichtig für die Positionierung des Pseudo-Elements */
-    width: auto !important; /* Passt die Breite an den Text an */
-    height: auto !important; /* Passt die Höhe an den Text an */
-    min-width: 70px !important; /* Mindestbreite für den Text */
-    min-height: 20px !important; /* Mindesthöhe für den Text */
-    border-radius: 0 !important; /* Entfernt die Rundung des Containers */
-    background-color: transparent !important; /* Macht den Hintergrund transparent */
-    align-items: center !important; /* Zentriert den Text vertikal */
-    justify-content: center !important; /* Zentriert den Text horizontal */
-    padding: 0 5px !important; /* Etwas Innenabstand */
-}
-
+/* Fügt den Text "thinking..." als Pseudo-Element in das äußere <span>-Element ein. */
+/* Da dieses <span>-Element dynamisch entfernt wird, sollte der Text mit ihm verschwinden. */
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d::before {
     content: "thinking..." !important; /* Der gewünschte Text */
-    display: block !important;
+    display: inline-block !important; /* Als Inline-Block anzeigen */
     color: var(--primary-text) !important; /* Textfarbe anpassen */
     font-size: 0.9rem !important; /* Schriftgröße anpassen */
-    line-height: 1 !important; /* Zeilenhöhe anpassen */
+    line-height: normal !important; /* Zeilenhöhe anpassen */
     animation: fadeInOut 2s infinite alternate; /* Optional: Leichte Animation */
+    /* Positionierung anpassen, falls es nicht richtig sitzt */
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
 }
 
 /* Optional: Animation für den "thinking..."-Text */
