@@ -139,26 +139,36 @@ img[src="/static/favicon.png"].size-9.rounded-full {
     border-radius: 0 !important; /* Macht es rechteckig */
 }
 /*_______________________________________*/  
-span.relative.flex.size-3.my-2.mx-1.svelte-pwh38d {
-    display: none !important; /* Blendet die "Bola" aus */
-    /* Optional: Wenn Sie den Platz behalten möchten, aber die Bola nicht sehen: */
-    /* visibility: hidden !important; */
-    /* width: 0 !important; */
-    /* height: 0 !important; */
+/* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
+
+/* 1. Blendet die inneren Spans der "Bola" aus. */
+/* Dies sind die tatsächlichen pulsierenden Kreise. */
+span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span {
+    display: none !important;
 }
 
-div.w-full.flex.flex-col.relative[id="response-content-container"] {
-    position: relative; /* Wichtig für die Positionierung des Pseudo-Elements */
-    min-height: 20px; /* Platz für den Text lassen */
+/* 2. Fügt den Text "thinking..." als Pseudo-Element in das äußere <span>-Element ein. */
+/* Dieses äußere <span>-Element ist der Container der "Bola" und wird von Open WebUI dynamisch entfernt. */
+span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
+    display: inline-flex !important; /* Stellt sicher, dass der Container sichtbar ist */
+    position: relative !important; /* Wichtig für die Positionierung des Pseudo-Elements */
+    width: auto !important; /* Passt die Breite an den Text an */
+    height: auto !important; /* Passt die Höhe an den Text an */
+    min-width: 70px !important; /* Mindestbreite für den Text */
+    min-height: 20px !important; /* Mindesthöhe für den Text */
+    border-radius: 0 !important; /* Entfernt die Rundung des Containers */
+    background-color: transparent !important; /* Macht den Hintergrund transparent */
+    align-items: center !important; /* Zentriert den Text vertikal */
+    justify-content: center !important; /* Zentriert den Text horizontal */
+    padding: 0 5px !important; /* Etwas Innenabstand */
 }
 
-div.w-full.flex.flex-col.relative[id="response-content-container"]::before {
+span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d::before {
     content: "thinking..." !important; /* Der gewünschte Text */
     display: block !important;
     color: var(--primary-text) !important; /* Textfarbe anpassen */
     font-size: 0.9rem !important; /* Schriftgröße anpassen */
-    margin-left: 10px !important; /* Abstand zum Avatar */
-    margin-top: 5px !important; /* Vertikaler Abstand */
+    line-height: 1 !important; /* Zeilenhöhe anpassen */
     animation: fadeInOut 2s infinite alternate; /* Optional: Leichte Animation */
 }
 
