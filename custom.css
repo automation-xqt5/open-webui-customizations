@@ -141,9 +141,7 @@ img[src="/static/favicon.png"].size-9.rounded-full {
 /*_______________________________________*/  
 /* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
 
-/* 1. Blendet die inneren Spans der "Bola" aus. */
-/* Dies sind die tatsächlichen pulsierenden Kreise. */
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span {
+span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
     display: none !important;
 }
 
