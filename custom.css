@@ -143,6 +143,8 @@ img[src="/static/favicon.png"].size-9.rounded-full {
 
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
     display: none !important;
+    content: "thinking..." !important; /* Der gewünschte Text */
+
 }
 
 /* 2. Fügt den Text "thinking..." als Pseudo-Element in das äußere <span>-Element ein. */
@@ -150,6 +152,7 @@ span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
     display: inline-flex !important; /* Stellt sicher, dass der Container sichtbar ist, wenn er im HTML ist */
     position: relative !important; /* Wichtig für die Positionierung des Pseudo-Elements */
+    content: "thinking..." !important;
     width: auto !important; /* Passt die Breite an den Text an */
     height: auto !important; /* Passt die Höhe an den Text an */
     min-width: 70px !important; /* Mindestbreite für den Text */
