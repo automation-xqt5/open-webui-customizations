@@ -139,48 +139,4 @@ img[src="/static/favicon.png"].size-9.rounded-full {
     border-radius: 0 !important; /* Macht es rechteckig */
 }
 /*_______________________________________*/  
-/* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
 
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
-    display: none !important;
-    content: "thinking..." !important; /* Der gewünschte Text */
-
-}
-
-/* 2. Fügt den Text "thinking..." als Pseudo-Element in das äußere <span>-Element ein. */
-/* Dieses äußere <span>-Element ist der Container der "Bola" und wird von Open WebUI dynamisch entfernt. */
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
-    display: inline-flex !important; /* Stellt sicher, dass der Container sichtbar ist, wenn er im HTML ist */
-    position: relative !important; /* Wichtig für die Positionierung des Pseudo-Elements */
-    content: "thinking..." !important;
-    width: auto !important; /* Passt die Breite an den Text an */
-    height: auto !important; /* Passt die Höhe an den Text an */
-    min-width: 70px !important; /* Mindestbreite für den Text */
-    min-height: 20px !important; /* Mindesthöhe für den Text */
-    border-radius: 0 !important; /* Entfernt die Rundung des Containers */
-    background-color: transparent !important; /* Macht den Hintergrund transparent */
-    align-items: center !important; /* Zentriert den Text vertikal */
-    justify-content: flex-start !important; /* Text linksbündig, nicht zentriert */
-    padding: 0 5px !important; /* Etwas Innenabstand */
-    margin-left: 10px !important; /* Abstand zum Avatar */
-    margin-top: 5px !important;
-    animation: none !important; /* Deaktiviert alle Animationen des Containers selbst */
-}
-
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d::before {
-    content: "thinking..." !important; /* Der gewünschte Text */
-    display: block !important; /* Als Block anzeigen, um den Platz einzunehmen */
-    color: var(--primary-text) !important; /* Textfarbe anpassen */
-    font-size: 0.9rem !important; /* Schriftgröße anpassen */
-    line-height: normal !important; /* Zeilenhöhe anpassen */
-    animation: fadeInOut 2s infinite alternate; /* Optional: Leichte Animation */
-    position: static !important; /* Stellt sicher, dass es normal im Fluss ist */
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Optional: Animation für den "thinking..."-Text */
-@keyframes fadeInOut {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
