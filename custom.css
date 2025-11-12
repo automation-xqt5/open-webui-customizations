@@ -138,3 +138,32 @@ img[src="/static/favicon.png"].size-9.rounded-full {
     height: 40px !important; /* Beispielhöhe */
     border-radius: 0 !important; /* Macht es rechteckig */
 }
+/*_______________________________________*/  
+span.relative.flex.size-3.my-2.mx-1.svelte-pwh38d {
+    display: none !important; /* Blendet die "Bola" aus */
+    /* Optional: Wenn Sie den Platz behalten möchten, aber die Bola nicht sehen: */
+    /* visibility: hidden !important; */
+    /* width: 0 !important; */
+    /* height: 0 !important; */
+}
+
+div.w-full.flex.flex-col.relative[id="response-content-container"] {
+    position: relative; /* Wichtig für die Positionierung des Pseudo-Elements */
+    min-height: 20px; /* Platz für den Text lassen */
+}
+
+div.w-full.flex.flex-col.relative[id="response-content-container"]::before {
+    content: "thinking..." !important; /* Der gewünschte Text */
+    display: block !important;
+    color: var(--primary-text) !important; /* Textfarbe anpassen */
+    font-size: 0.9rem !important; /* Schriftgröße anpassen */
+    margin-left: 10px !important; /* Abstand zum Avatar */
+    margin-top: 5px !important; /* Vertikaler Abstand */
+    animation: fadeInOut 2s infinite alternate; /* Optional: Leichte Animation */
+}
+
+/* Optional: Animation für den "thinking..."-Text */
+@keyframes fadeInOut {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
