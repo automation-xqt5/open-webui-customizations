@@ -143,37 +143,38 @@ img[src="/static/favicon.png"].size-9.rounded-full {
  
 /* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
 
-/* 1. Blendet die inneren Spans der "Bola" komplett aus. */
-/* Diese sind die tatsächlichen pulsierenden Kreise, die die "Bola"-Optik erzeugen. */
-/* Wir verwenden eine sehr spezifische Kombination von Selektoren, um sicherzustellen, dass sie überschrieben werden. */
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span.absolute.inline-flex.h-full.w-full.animate-pulse.rounded-full.bg-gray-700.dark\:bg-gray-200.opacity-75.svelte-pwh38d,
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span.relative.inline-flex.size-3.rounded-full.bg-black.dark\:bg-white.animate-size.svelte-pwh38d {
-    display: none !important; /* Blendet die inneren Kreise aus */
-    background-color: transparent !important; /* Stellt sicher, dass kein Hintergrund bleibt */
-    border: none !important; /* Entfernt Ränder */
-    box-shadow: none !important; /* Entfernt Schatten */
-    animation: none !important; /* Deaktiviert Animationen */
+/* Selektor für den Assistenten-Namen: */
+.self-center.font-semibold.line-clamp-1.flex.gap-1.items-center {
+    position: relative !important; /* Wichtig für die Positionierung des Pseudo-Elements */
+    /* Zusätzlicher Platz, falls der Text länger ist */
+    padding-right: 80px !important; /* Platz für "thinking..." */
 }
 
-/* 2. Stile für das äußere <span>-Element, das den Spinner-Container ist. */
-/* Dieses Element wird von Open WebUI dynamisch hinzugefügt/entfernt. */
-/* Wir verwandeln es in ein rotes Quadrat. */
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
-    display: inline-flex !important; /* Sicherstellen, dass der Container sichtbar ist */
-    width: 15px !important; /* Gewünschte Breite für das Quadrat */
-    height: 15px !important; /* Gewünschte Höhe für das Quadrat */
-    border-radius: 0 !important; /* Macht es zu einem Quadrat */
-    background-color: red !important; /* Macht es rot */
-    animation: none !important; /* Deaktiviert alle Animationen des Containers selbst */
-    border: none !important; /* Entfernt jeglichen Rand */
-    box-shadow: none !important; /* Entfernt Schatten */
-    opacity: 1 !important; /* Sicherstellen, dass es sichtbar ist */
-    /* Positionierung anpassen */
-    margin-left: 10px !important; /* Abstand zum Avatar */
-    margin-top: 5px !important;
-    /* Sicherstellen, dass kein Text oder Inhalt versehentlich angezeigt wird */
-    content: none !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    overflow: hidden !important; /* Verhindert, dass etwas überläuft */
+/* Fügt den Text "thinking..." als Pseudo-Element HINTER dem Assistenten-Namen ein. */
+/* Dies wird nur angezeigt, wenn der Ladeindikator aktiv ist. */
+/* Dies ist ein Workaround und kann bei Updates brechen. */
+.self-center.font-semibold.line-clamp-1.flex.gap-1.items-center::after {
+    content: "thinking..." !important;
+    display: inline-block !important; /* Als Inline-Block anzeigen */
+    color: var(--primary-text) !important;
+    font-size: 0.9rem !important;
+    line-height: normal !important;
+    animation: fadeInOut 2s infinite alternate !important;
+    position: absolute !important; /* Absolut positionieren */
+    right: 0 !important; /* Rechts vom Container */
+    top: 50% !important; /* Vertikal zentrieren */
+    transform: translateY(-50%) !important; /* Vertikal zentrieren */
+    margin-left: 10px !important; /* Abstand zum Namen */
+    white-space: nowrap !important;
+    pointer-events: none !important; /* Damit es keine Klicks abfängt */
+    /* Standardmäßig ausblenden, und nur anzeigen, wenn der Ladeindikator aktiv ist. */
+    /* Dies erfordert JavaScript-Logik, die wir mit CSS nicht haben. */
+    /* Daher wird es immer angezeigt, wenn das Elternelement existiert. */
+    /* Dies ist der Kompromiss, den wir mit reinem CSS eingehen müssen. */
+}
+
+/* Optional: Animation für den "thinking..."-Text */
+@keyframes fadeInOut {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
