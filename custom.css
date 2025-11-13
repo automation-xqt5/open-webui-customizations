@@ -140,54 +140,40 @@ img[src="/static/favicon.png"].size-9.rounded-full {
 }
 /*_______________________________________*/ 
 
-  /* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
+ 
+/* --- KORREKTUR DES "THINKING"-INDIKATORS --- */
 
-/* 1. Blendet die inneren Spans der "Bola" aus, die die Animation erzeugen. */
-/* Dies sind die tatsächlichen pulsierenden Kreise. */
-/* Wir verwenden hier eine sehr spezifische Kombination von Selektoren, um sicherzustellen, dass es überschrieben wird. */
+/* 1. Blendet die inneren Spans der "Bola" komplett aus. */
+/* Diese sind die tatsächlichen pulsierenden Kreise, die die "Bola"-Optik erzeugen. */
+/* Wir verwenden eine sehr spezifische Kombination von Selektoren, um sicherzustellen, dass sie überschrieben werden. */
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span.absolute.inline-flex.h-full.w-full.animate-pulse.rounded-full.bg-gray-700.dark\:bg-gray-200.opacity-75.svelte-pwh38d,
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d > span.relative.inline-flex.size-3.rounded-full.bg-black.dark\:bg-white.animate-size.svelte-pwh38d {
-    display: none !important;
+    display: none !important; /* Blendet die inneren Kreise aus */
+    background-color: transparent !important; /* Stellt sicher, dass kein Hintergrund bleibt */
+    border: none !important; /* Entfernt Ränder */
+    box-shadow: none !important; /* Entfernt Schatten */
+    animation: none !important; /* Deaktiviert Animationen */
 }
 
 /* 2. Stile für das äußere <span>-Element, das den Spinner-Container ist. */
 /* Dieses Element wird von Open WebUI dynamisch hinzugefügt/entfernt. */
+/* Wir verwandeln es in ein rotes Quadrat. */
 span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d {
-    display: inline-flex !important; /* Muss sichtbar sein, wenn es im HTML ist */
-    position: relative !important;   /* Für die Positionierung des Pseudo-Elements */
-    width: auto !important;          /* Breite an den Text anpassen */
-    height: auto !important;         /* Höhe an den Text anpassen */
-    min-width: 70px !important;      /* Mindestbreite für den Text */
-    min-height: 20px !important;     /* Mindesthöhe für den Text */
-    border-radius: 0 !important;     /* Entfernt die Rundung des Containers */
-    background-color: transparent !important; /* Macht den Hintergrund transparent */
-    border: none !important;         /* Entfernt jeglichen Rand */
-    box-shadow: none !important;     /* Entfernt Schatten */
-    animation: none !important;      /* Deaktiviert alle Animationen des Containers selbst */
-    align-items: center !important;  /* Zentriert den Text vertikal */
-    justify-content: flex-start !important; /* Text linksbündig */
-    padding: 0 5px !important;       /* Etwas Innenabstand */
-    margin-left: 10px !important;    /* Abstand zum Avatar */
+    display: inline-flex !important; /* Sicherstellen, dass der Container sichtbar ist */
+    width: 15px !important; /* Gewünschte Breite für das Quadrat */
+    height: 15px !important; /* Gewünschte Höhe für das Quadrat */
+    border-radius: 0 !important; /* Macht es zu einem Quadrat */
+    background-color: red !important; /* Macht es rot */
+    animation: none !important; /* Deaktiviert alle Animationen des Containers selbst */
+    border: none !important; /* Entfernt jeglichen Rand */
+    box-shadow: none !important; /* Entfernt Schatten */
+    opacity: 1 !important; /* Sicherstellen, dass es sichtbar ist */
+    /* Positionierung anpassen */
+    margin-left: 10px !important; /* Abstand zum Avatar */
     margin-top: 5px !important;
-    opacity: 1 !important;           /* Sicherstellen, dass es sichtbar ist */
+    /* Sicherstellen, dass kein Text oder Inhalt versehentlich angezeigt wird */
+    content: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden !important; /* Verhindert, dass etwas überläuft */
 }
-
-/* 3. Fügt den Text "thinking..." als Pseudo-Element in das äußere <span>-Element ein. */
-span.relative.inline-flex.size-3.my-2.mx-1.svelte-pwh38d::before {
-    content: "thinking..." !important; /* Der gewünschte Text */
-    display: block !important;         /* Als Block anzeigen */
-    color: var(--primary-text) !important; /* Textfarbe anpassen */
-    font-size: 0.9rem !important;      /* Schriftgröße anpassen */
-    line-height: normal !important;    /* Zeilenhöhe anpassen */
-    animation: fadeInOut 2s infinite alternate; /* Optional: Leichte Animation */
-    position: static !important;       /* Stellt sicher, dass es normal im Fluss ist */
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Optional: Animation für den "thinking..."-Text */
-@keyframes fadeInOut {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
